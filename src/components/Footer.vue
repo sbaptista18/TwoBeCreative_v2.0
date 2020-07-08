@@ -20,7 +20,8 @@
 </template>
 
 <script>
-import { faLibrary } from "@fortawesome/vue-fontawesome";
+/* eslint-disable */
+// import { faLibrary } from "@fortawesome/vue-fontawesome";
 import { faFacebookF } from "@fortawesome/free-brands-svg-icons";
 import { faInstagram } from "@fortawesome/free-brands-svg-icons";
 
@@ -32,7 +33,7 @@ export default {
     };
   },
   components: {
-    faLibrary
+    // faLibrary
   }
 };
 </script>

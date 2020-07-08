@@ -12,7 +12,7 @@
       </div>
       <div class="items row">
         <div class="item">
-          <div class="img" style="background-image: url(../src/assets/bernooli-3.png);">
+          <div class="img" :style="{'background-image': 'url(' + img1 + ')'}">
             <div class="shine-wrapper">
               <div class="shine"></div>
             </div>
@@ -27,7 +27,7 @@
           </div>
         </div>
         <div class="item">
-          <div class="img" style="background-image: url(../src/assets/phone.jpg);">
+          <div class="img" :style="{'background-image': 'url(' + img2 + ')'}">
             <div class="shine-wrapper">
               <div class="shine"></div>
             </div>
@@ -42,7 +42,7 @@
           </div>
         </div>
         <div class="item">
-          <div class="img" style="background-image: url(../src/assets/surfspot-2.png);">
+          <div class="img" :style="{'background-image': 'url(' + img3 + ')'}">
             <div class="shine-wrapper">
               <div class="shine"></div>
             </div>
@@ -62,7 +62,20 @@
 </template>
 
 <script>
-export default {};
+/* eslint-disable */
+import img1 from '../../assets/bernooli-3.png'
+import img2 from '../../assets/phone.jpg'
+import img3 from '../../assets/surfspot-2.png'
+
+export default {
+  data(){
+    return {
+      img1,
+      img2,
+      img3
+    }
+  }
+};
 </script>
 
 <style lang="scss" scoped>

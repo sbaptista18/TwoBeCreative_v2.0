@@ -1,3 +1,5 @@
+/* eslint-disable */
+
 import Home from './components/Home';
 import Portfolio from './components/portfolio/Portfolio';
 import Contactos from './components/contactos/Contactos';

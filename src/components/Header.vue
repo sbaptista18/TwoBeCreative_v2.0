@@ -85,6 +85,7 @@
 </template>
 
 <script>
+/* eslint-disable */
 import logoBlack from "../assets/twobe-creative-logo-black.png";
 import logoWhite from "../assets/twobe-creative-logo-white.png";
 

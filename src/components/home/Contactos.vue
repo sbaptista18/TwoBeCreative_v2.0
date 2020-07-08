@@ -34,7 +34,8 @@
 </template>
 
 <script>
-import { faLibrary } from "@fortawesome/vue-fontawesome";
+/* eslint-disable */
+// import { faLibrary } from "@fortawesome/vue-fontawesome";
 import { faTag } from "@fortawesome/free-solid-svg-icons";
 import { faEnvelope } from "@fortawesome/free-solid-svg-icons";
 import { faComment } from "@fortawesome/free-solid-svg-icons";
@@ -48,7 +49,7 @@ export default {
     };
   },
   components: {
-    faLibrary
+    // faLibrary
   }
 };
 </script>

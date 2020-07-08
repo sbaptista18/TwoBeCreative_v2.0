@@ -9,6 +9,7 @@
 </template>
 
 <script>
+/* eslint-disable */
 import Servicos from './home/Servicos';
 import Portfolio from './home/Portfolio';
 import Equipa from './home/Equipa';

@@ -2,7 +2,7 @@
   <div class="equipa">
     <div class="row">
       <div class="left img">
-        <div class="rellax" data-rellax-speed="-4" style="background-image: url(../src/assets/parallax-1.jpg);"></div>
+        <div class="rellax" data-rellax-speed="-4"  :style="{'background-image': 'url(' + p1 + ')'}"></div>
       </div>
       <div class="right">
         <div class="wrapper">
@@ -55,24 +55,29 @@
         </div>
       </div>
       <div class="right img">
-        <div class="rellax" data-rellax-speed="-4" style="background-image: url(../src/assets/parallax-2.jpg);"></div>
+        <div class="rellax" data-rellax-speed="-4" :style="{'background-image': 'url(' + p2 + ')'}"></div>
       </div>
     </div>
   </div>
 </template>
 
 <script>
-import { faLibrary } from "@fortawesome/vue-fontawesome";
+/* eslint-disable */
+// import { faLibrary } from "@fortawesome/vue-fontawesome";
 import { faCheckCircle } from "@fortawesome/free-solid-svg-icons";
+import parallax1 from '../../assets/parallax-1.jpg'
+import parallax2 from '../../assets/parallax-2.jpg'
 
 export default {
   data() {
     return {
-      check: faCheckCircle
+      check: faCheckCircle,
+      p1: parallax1,
+      p2: parallax2
     };
   },
   components: {
-    faLibrary
+    // faLibrary
   },
   methods: {
     parallax: function() {
