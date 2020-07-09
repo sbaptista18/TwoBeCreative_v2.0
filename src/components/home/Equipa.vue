@@ -96,27 +96,51 @@ export default {
   display: flex;
   flex-direction: column;
 
+  @media screen and (max-width: 767px) {
+    height: auto;
+  }
+
   .row {
     height: 50%;
     display: flex;
     flex-direction: row;
 
+  &:nth-child(2) {
+    @media screen and (max-width: 767px) {
+      flex-direction: column-reverse;
+    }
+  }
+
+    @media screen and (max-width: 767px) {
+      flex-direction: column;
+    }
+
     .left {
       &.img {
+
+        @media screen and (max-width: 767px) {
+          height: 410px;
+        }
+
         > div {
           width: 200%;
           height: 200%;
-          background-position: top left;
+          background-position: top center;
         }
       }
     }
 
     .right {
       &.img {
+
+        @media screen and (max-width: 767px) {
+          height: 410px;
+        }
+
         > div {
           width: 200%;
           height: 200%;
-          background-position: top right;
+          background-position: top center;
         }
       }
     }
@@ -125,6 +149,10 @@ export default {
       width: 50%;
       display: flex;
       align-items: center;
+
+      @media screen and (max-width: 767px) {
+        width: 100%;
+      }
 
       &.img {
         background-color: #cbcbcb;
@@ -141,6 +169,14 @@ export default {
         display: flex;
         flex-direction: column;
         height: auto;
+
+        @media screen and (max-width: 767px) {
+          padding: 30px 80px;
+        }
+
+        @media screen and (max-width: 599px) {
+          padding: 20px 20px;
+        }
 
         .title {
           color: #333;

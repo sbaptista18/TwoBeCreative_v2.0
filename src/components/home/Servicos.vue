@@ -65,9 +65,19 @@ export default {
   justify-content: space-between;
   align-items: center;
 
+  @media screen and (max-width: 767px) {
+    flex-direction: column;
+    height: auto;
+  }
+
   .item {
     width: calc(100% - 33%);
     height: 100%;
+
+    @media screen and (max-width: 767px) {
+      height: 320px;
+      width: 100%;
+    }
 
     &:nth-child(1) {
       background-color: #fff;

@@ -77,10 +77,18 @@ export default {};
     width: 100%;
     height: 500px;
 
+    @media screen and (max-width: 767px) {
+      height: auto;
+    }
+
     .row {
       display: flex;
       flex-direction: row;
       height: 100%;
+
+      @media screen and (max-width: 767px) {
+        flex-wrap: wrap;
+      }
 
       .item {
         height: 100%;
@@ -90,6 +98,11 @@ export default {};
         align-items: center;
         justify-content: center;
         transition: 0.5s;
+
+        @media screen and (max-width: 767px) {
+          width: 50%;
+          height: 300px;
+        }
 
         &:nth-child(1) {
           background-color: #cbcbcb;

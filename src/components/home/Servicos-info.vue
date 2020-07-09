@@ -86,7 +86,16 @@ export default {
   align-items: center;
   padding: 150px 0;
 
+  @media screen and (max-width: 767px) {
+    height: auto;
+    padding: 40px 0;
+  }
+
   &::before {
+    @media screen and (max-width: 767px) {
+      display: none;
+    }
+
     content: "";
     background-color: #f7f7f7;
     height: 255px;
@@ -97,6 +106,10 @@ export default {
 
   .wrapper {
     position: absolute;
+
+    @media screen and (max-width: 767px) {
+      position: relative;
+    }
 
     .row {
       width: 100%;
@@ -123,13 +136,22 @@ export default {
       &.items {
         display: flex;
         justify-content: space-between;
-        width: 1240px;
+        max-width: 1240px;
+        width: 100%;
         margin-top: 30px;
+
+        @media screen and (max-width: 767px) {
+          flex-direction: column;
+        }
 
         .item {
           width: 380px;
           height: 560px;
           cursor: pointer;
+
+          @media screen and (max-width: 767px) {
+            width: 100%;
+          }
 
           &:hover {
             .txt {
@@ -150,6 +172,10 @@ export default {
             height: 380px;
             background-color: #cbcbcb;
             background-size: cover;
+
+            @media screen and (max-width: 767px) {
+              width: 100%;
+            }
 
             .shine-wrapper {
               width: 380px;
@@ -184,6 +210,13 @@ export default {
             justify-content: space-between;
             transition: 0.25s;
             color: #666;
+
+            @media screen and (max-width: 767px) {
+              width: 100%;
+              padding: 40px 0;
+              align-items: center;
+              text-align: center;
+            }
 
             .title {
               font-size: 18px;

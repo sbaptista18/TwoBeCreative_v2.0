@@ -57,11 +57,22 @@ footer {
     height: 250px;
     background-color: #1d1d1d;
 
+    @media screen and (max-width: 767px) {
+      height: 190px;
+    }
+
     .container {
       flex-direction: column;
       justify-content: space-between;
       padding: 90px 0;
       height: 70px;
+
+      @media screen and (max-width: 767px) {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 70px 0;
+      }
 
       .line {
         height: 1px;
@@ -94,6 +105,12 @@ footer {
       line-height: 25px;
       // align-items: center;
       justify-content: center;
+
+      @media screen and (max-width: 767px) {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
     }
   }
 }

@@ -29,6 +29,47 @@
           </router-link>
         </div>
       </div>
+
+      <div class="menu-mobile">
+        <div class="brand">
+          <router-link to="/">
+            <div></div>
+          </router-link>
+        </div>
+
+        <div class="menu-btn" @click="openMenuMobile()">
+          <div class="line"></div>
+          <div class="line"></div>
+          <div class="line"></div>
+        </div>
+
+        <div class="menu-items">
+          <div class="menu-item" v-if="!$route.meta.hideLink">
+            <a @click="scrollMeTo('header')">Início</a>
+          </div>
+          <div class="menu-item" v-if="!$route.meta.hideLink">
+            <a @click="scrollMeTo('equipa')">A TwoBe Creative</a>
+          </div>
+          <div class="menu-item" v-if="!$route.meta.hidePortfolio">
+            <router-link to="/portfolio">
+              Portfolio
+            </router-link>
+          </div>
+          <div class="menu-item" v-if="!$route.meta.hideLink">
+            <a @click="scrollMeTo('servicos-info')">Serviços</a>
+          </div>
+          <div class="menu-item" v-if="!$route.meta.hideContactos">
+            <router-link to="/contactos">
+              Contactos
+            </router-link>
+          </div>
+          <div class="menu-item" v-if="$route.meta.hideLink">
+            <router-link to="/">
+              Home
+            </router-link>
+          </div>
+        </div>
+      </div>
     </div>
 
     <header v-show="!$route.meta.hideHeader">
@@ -123,6 +164,21 @@ export default {
     },
     parallax: function() {
       var rellax = new Rellax(".rellax");
+    },
+    openMenuMobile(){
+      var menu = $('.menu-mobile .menu-items');
+      var menu_item = $('.menu-mobile .menu-item a');
+
+      menu.toggleClass('open');
+      menu_item.toggleClass('open');
+    },
+    offsetTopMobile(){
+      var content = $('#content-wrapper');
+
+      if($(window).width() < 768) {
+        console.log(23)
+        content.css('margin-top', $('.header-wrapper').height());
+      }
     }
   },
   created() {
@@ -133,6 +189,7 @@ export default {
   },
   mounted() {
     this.parallax();
+    this.offsetTopMobile();
   }
 };
 </script>
@@ -162,15 +219,27 @@ export default {
 
 .header-wrapper {
   min-height: 100px;
+
+  @media screen and (max-width: 767px) {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+  }
+
   .menu-wrapper {
     height: 100px;
     background-color: #fff;
-    padding: 0 80px;
+    // padding: 0 80px;
     position: fixed;
     width: 100%;
-    max-width: 95%;
+    // max-width: 95%;
     z-index: 1;
     animation: to-white 200ms ease-out forwards;
+
+    @media screen and (max-width: 599px) {
+      height: 80px;
+    }
 
     &.top {
       background-color: #992303;
@@ -208,6 +277,11 @@ export default {
       display: flex;
       justify-content: space-between;
       align-items: center;
+      padding: 0 80px;
+
+      @media screen and (max-width: 768px){
+        display: none;
+      }
 
       .brand {
         background-repeat: no-repeat;
@@ -263,11 +337,134 @@ export default {
         }
       }
     }
+
+    .menu-mobile {
+      height: 100%;
+      display: none;
+      justify-content: space-between;
+      align-items: center;
+      padding: 0 20px;
+      background-color: #333;
+
+      @media screen and (max-width: 768px){
+        display: flex;
+      }
+
+      .brand {
+        background-repeat: no-repeat;
+        background-image: url("../assets/twobe-creative-logo-white.png");
+        width: 178px;
+        height: 47px;
+        background-size: contain;
+        margin-left: 20px;
+
+        a {
+          height: 100%;
+          width: 100%;
+
+          div {
+            height: 100%;
+            width: 100%;
+          }
+        }
+      }
+
+      .menu-btn {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        height: 30px;
+        margin-right: 20px;
+
+        .line {
+          width: 40px;
+          height: 4px;
+          background-color: #fff;
+        }
+      }
+
+      .menu-items {
+        width: 700px;
+        height: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: flex-end;
+        position: absolute;
+        height: auto;
+        flex-direction: column;
+        top: 100px;
+        background-color: #333;
+        left: 0;
+        width: 100%;
+        // padding: 40px 0;
+        overflow: hidden;
+        max-height: 0;
+        transition: max-height .5s ease;
+
+        &.open {
+          max-height: 350px;
+          transition: max-height .5s ease;
+        }
+
+        .menu-item {
+          height: 100%;
+          display: flex;
+          align-items: center;
+          font-weight: bold;
+          text-transform: uppercase;
+          font-size: 20px;
+          cursor: pointer;
+          width: 100%;
+          height: 70px;
+
+          &:first-child{
+            margin-top: 40px;
+          }
+
+          &:last-child{
+            margin-bottom: 40px;
+          }
+
+          a {
+            margin-left: 40px;
+            text-decoration: none;
+            color: #fff;
+            opacity: 0;
+            transition: opacity .1s ease;
+
+            &.open {
+              opacity: 1;
+              transition: opacity .1s ease;
+            }
+          }
+
+          &.home {
+            a {
+              padding: 15px;
+              border: 2px solid #992303;
+              border-radius: 30px;
+              transition: 0.5s;
+
+              &:hover {
+                border: 2px solid #992303;
+                color: #fff;
+                border-radius: 30px;
+                background-color: #992303;
+              }
+            }
+          }
+        }
+      }
+    }
   }
 
   header {
     height: 830px;
     background-color: #992303;
+
+    @media screen and (max-width: 767px) {
+      height: 100%;
+    }
 
     .header {
       height: 100%;
@@ -285,6 +482,12 @@ export default {
 
         .right {
           right: 0;
+
+          .mouse {
+            @media screen and (max-width: 767px) {
+              bottom: 310px !important;
+            }
+          }
         }
 
         > div {
@@ -292,6 +495,11 @@ export default {
           height: 830px;
           width: 600px;
           overflow: hidden;
+
+          @media screen and (max-width: 767px) {
+            height: 100%;
+            width: 100%;
+          }
 
           > div {
             position: absolute;
@@ -310,11 +518,18 @@ export default {
         justify-content: space-between;
         height: 220px;
 
+        @media screen and (max-width: 767px) {
+          top: 15%;
+          text-align: center;
+          width: 100%;
+        }
+
         .title {
           font-family: "Work Sans", sans-serif;
           color: #fff;
           text-transform: uppercase;
           font-size: 80px;
+          width: 90%;
         }
 
         .subtitle {
@@ -324,6 +539,10 @@ export default {
 
         .cta-wrapper {
           cursor: pointer;
+
+          @media screen and (max-width: 767px) {
+            margin-top: 20px;
+          }
 
           &:hover {
             .cta {
@@ -373,6 +592,10 @@ export default {
       align-items: center;
       justify-content: center;
       cursor: pointer;
+
+      @media screen and (max-width: 767px) {
+        margin-top: -105px;
+      }
 
       img {
         transition: 0.5s;
